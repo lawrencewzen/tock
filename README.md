@@ -29,8 +29,26 @@ mv tock ~/bin/         # or anywhere on PATH
 
 ## Setup
 
-Create an OAuth app at [developer.ticktick.com](https://developer.ticktick.com)
-(or developer.dida365.com) with redirect URI `http://localhost:8080`, then:
+### 1. Register an OAuth app
+
+Sign in with your normal account at
+[developer.ticktick.com](https://developer.ticktick.com) for TickTick, or
+[developer.dida365.com](https://developer.dida365.com) for 滴答清单, create a
+new app, and fill in **App Setting**:
+
+| Field              | Value                                                             |
+| ------------------ | ----------------------------------------------------------------- |
+| Name (required)    | anything, e.g. `tock`                                             |
+| OAuth redirect URL | `http://localhost:8080` — must be exact; `tock init` listens here |
+| App Icon           | leave empty                                                       |
+| App Service URL    | leave empty                                                       |
+| Description        | leave empty                                                       |
+
+Click **Save**; the page then shows the generated **Client ID** and
+**Client Secret** with Copy buttons (the *Reset* link regenerates the secret
+if it ever leaks).
+
+### 2. Authenticate
 
 ```bash
 export TOCK_CLIENT_ID=...        # TICKTICK_CLIENT_ID also accepted
