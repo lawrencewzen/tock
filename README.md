@@ -78,6 +78,20 @@ tock task delete <id>                   # immediate, no confirmation
 
 Priorities: `none|low|medium|high`. Dates: RFC3339 in, API format out.
 
+## Claude Code skill
+
+`skill/SKILL.md` teaches [Claude Code](https://claude.com/claude-code) to
+manage your todos through tock — natural-language create/query/complete,
+provider switching, and guided OAuth setup. Install it with:
+
+```bash
+scripts/install-skill.sh        # copies to ~/.claude/skills/tock/
+                                # -f overwrites a locally customized copy
+```
+
+Then just tell Claude things like 「明天下午3点提醒我给客户回电话」 or
+「今天有什么任务」.
+
 ## Development
 
 ```bash
