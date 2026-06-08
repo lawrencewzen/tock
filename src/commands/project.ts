@@ -36,6 +36,32 @@ export function projectCommand(): Command {
     });
 
   cmd
+    .command("create <name>")
+    .description("Create a new project")
+    .option("--color <hex>", "project color, e.g. #F18181")
+    .option("--view <mode>", "view mode: list|kanban|timeline")
+    .option("--kind <kind>", "project kind: TASK|NOTE")
+    .option("-o, --output <format>", "simple (default) or json", parseOutputFormat, "simple")
+    .action(
+      async (
+        name: string,
+        opts: { color?: string; view?: string; kind?: string; output: "simple" | "json" },
+      ) => {
+        const { client } = await loadContext();
+        const created = await client.createProject(name, {
+          color: opts.color,
+          viewMode: opts.view,
+          kind: opts.kind,
+        });
+        if (opts.output === "json") {
+          printJson(created);
+        } else {
+          console.log(`Created project ${created.name} (${created.id})`);
+        }
+      },
+    );
+
+  cmd
     .command("use <project>")
     .description("Set the default project (by exact id or name substring)")
     .action(async (query: string) => {

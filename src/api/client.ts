@@ -40,6 +40,11 @@ export class ApiClient {
     }
   }
 
+  async createProject(name: string, opts?: { color?: string; viewMode?: string; kind?: string }): Promise<Project> {
+    const data = await this.request("POST", "/project", { name, ...opts });
+    return ProjectSchema.parse(data);
+  }
+
   /** Lists projects, appending the virtual Inbox the API omits. */
   async listProjects(): Promise<Project[]> {
     const data = await this.request("GET", "/project");
