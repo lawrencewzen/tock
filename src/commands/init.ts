@@ -3,8 +3,6 @@ import { buildAuthorizeUrl, exchangeCode, type OAuthCredentials } from "../api/o
 import { loadConfig, saveConfig } from "../core/config";
 import { getProvider, type Provider } from "../core/providers";
 import { loadToken, saveToken } from "../core/token";
-import * as http from "http";
-import { randomUUID } from "crypto";
 
 const REDIRECT_PORT = 8080;
 const REDIRECT_URI = `http://localhost:${REDIRECT_PORT}`;
@@ -30,8 +28,7 @@ function openBrowser(url: string): void {
   const opener =
     process.platform === "darwin" ? "open" : process.platform === "win32" ? "start" : "xdg-open";
   try {
-    const { spawn } = require("child_process");
-    spawn(opener, [url], { stdio: "ignore" });
+    Bun.spawn([opener, url], { stdout: "ignore", stderr: "ignore" });
   } catch {
     // Non-fatal: the URL is printed for manual opening.
   }
@@ -46,31 +43,25 @@ function waitForAuthCode(expectedState: string): { code: Promise<string>; stop: 
     rejectCode = reject;
   });
 
-  const server = http.createServer((req, res) => {
-    const url = new URL(req.url ?? "/", `http://localhost:${REDIRECT_PORT}`);
-    const received = url.searchParams.get("code");
-    if (!received) {
-      res.writeHead(400);
-      res.end("Missing authorization code.");
-      return;
-    }
-    if (url.searchParams.get("state") !== expectedState) {
-      rejectCode(new Error("OAuth state mismatch — possible CSRF, aborting"));
-      res.writeHead(400);
-      res.end("State mismatch.");
-      return;
-    }
-    resolveCode(received);
-    res.writeHead(200, { "Content-Type": "text/plain" });
-    res.end("Authorization successful! You can close this window.");
+  const server = Bun.serve({
+    port: REDIRECT_PORT,
+    fetch(req: Request): Response {
+      const url = new URL(req.url);
+      const received = url.searchParams.get("code");
+      if (!received) return new Response("Missing authorization code.", { status: 400 });
+      if (url.searchParams.get("state") !== expectedState) {
+        rejectCode(new Error("OAuth state mismatch — possible CSRF, aborting"));
+        return new Response("State mismatch.", { status: 400 });
+      }
+      resolveCode(received);
+      return new Response("Authorization successful! You can close this window.");
+    },
   });
-
-  server.listen(REDIRECT_PORT);
 
   return {
     code,
     stop: (): void => {
-      server.close();
+      void server.stop(true);
     },
   };
 }
