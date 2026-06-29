@@ -74,7 +74,8 @@ tock project use <名称|id>          # 切换默认项目（持久化）
 
 ```bash
 tock task create -t "标题" [-c 备注] [-p none|low|medium|high] [--tags a,b] \
-                 [--start RFC3339] [--due RFC3339] [--all-day] [--tz 时区] [-o json]
+                 [--start RFC3339] [--due RFC3339] [--all-day] [--tz 时区] \
+                 [--reminder TRIGGER:PT0S] [-o json]
 
 tock task list [-p none|low|medium|high] [-t <tag>] [-o json]
 # -p 为最低优先级（含），只列该级别及以上的任务；仅列未完成任务
@@ -82,8 +83,10 @@ tock task list [-p none|low|medium|high] [-t <tag>] [-o json]
 tock task show <task-id> [-o json]
 
 tock task update <task-id> [-t 标题] [-c 备注] [-p none|low|medium|high] \
-                 [--tags a,b] [--start RFC3339] [--due RFC3339] [--all-day] [--tz 时区]
+                 [--tags a,b] [--start RFC3339] [--due RFC3339] [--all-day] [--tz 时区] \
+                 [--reminder TRIGGER:PT0S]
 # 只传入需要变更的 flag，其余字段保持原值（read-modify-write）
+# ⚠️ update 必须带 -P <project-id>，否则会报 validation 错误
 
 tock task complete <task-id>
 tock task delete <task-id>          # 立即删除，无确认
@@ -91,6 +94,18 @@ tock task delete <task-id>          # 立即删除，无确认
 
 JSON 里的字段对照：`priority` 是数字（none=0, low=1, medium=3, high=5）；
 `status` 0=未完成；`isAllDay` 全天任务。
+
+### 提醒（`--reminder`）
+
+tock 支持 iCalendar TRIGGER 格式的提醒，滴答清单 APP 会根据它弹出通知：
+
+| 格式 | 含义 |
+|------|------|
+| `TRIGGER:PT0S` | 开始时提醒 |
+| `TRIGGER:PT30M` | 开始后 30 分钟 |
+| `TRIGGER:-PT10M` | 提前 10 分钟 |
+
+生产类问题（银行、社保卡等当天必须解决的）默认加 `--reminder "TRIGGER:PT0S"`。
 
 ## 日期与时间
 
