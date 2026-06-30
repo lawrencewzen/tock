@@ -1,10 +1,23 @@
+<div align="center">
+
 # 🕐 tock
 
-[English](./README.md) · [中文](./README_CN.md)
+[![AI Spark](https://img.shields.io/badge/AI%20Spark-开源知识社区-d83931?style=flat-square)](https://github.com/aisparkedu)
+[![知识库](https://img.shields.io/badge/AI%20Spark-知识库-2b6cb0?style=flat-square)](https://github.com/aisparkedu/knowledge-base)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22863a?style=flat-square)](./LICENSE)
+[![Bun](https://img.shields.io/badge/Bun-1.3.14+-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
+
+**为 AI 工作流而生的 TickTick / 滴答清单命令行工具**
+
+[English](./README.md) · [中文](./README_CN.md) · 一个 [AI Spark](https://github.com/aisparkedu) 开源项目
+
+</div>
+
+---
 
 **tock** 是一个为 AI 工作流设计的命令行工具，用来管理你的 [TickTick](https://ticktick.com) / [滴答清单 (Dida365)](https://dida365.com) 待办事项。
 
-它基于官方 Open API 构建（TypeScript + Bun），输出格式对机器友好，天生适合被 AI 调用。配套的 Claude Code skill 让你直接用自然语言跟 Claude 聊来管理任务，比如「明天下午三点提醒我给客户回电」。
+它基于官方 Open API 构建（TypeScript + Bun），输出格式对机器友好，天生适合被 AI 调用。配套的 skill 让 Claude Code 等 Agent 直接用自然语言帮你管理任务，比如「明天下午三点提醒我给客户回电」。
 
 ---
 
@@ -16,7 +29,7 @@
 | 🌐 **双平台支持** | 同一个 CLI 同时支持 TickTick（国际版）和 Dida365（滴答清单），用 `--provider` 切换 |
 | 🛡️ **安全更新** | `task update` 采用 read-modify-write 模式，只修改你传入的字段，避免 API 的边缘情况导致任务重复创建 |
 | 🔄 **自动刷新 Token** | OAuth token 过期前自动刷新，无需手动重新登录 |
-| 🗣️ **Claude 集成** | 内置 Claude Code skill，支持自然语言管理任务 |
+| 🗣️ **Agent 集成** | 内置 skill，Claude Code 等 Agent 都能用自然语言管理任务 |
 
 ---
 
@@ -34,7 +47,7 @@ curl -fsSL https://bun.sh/install | bash
 ### 构建并安装
 
 ```bash
-git clone https://github.com/lawrencewzen/tock.git
+git clone https://github.com/aisparkedu/tock.git
 cd tock
 bun install
 bun run build          # 生成单文件二进制 ./tock
@@ -201,9 +214,9 @@ tock task delete abc123
 
 ---
 
-## 🤖 Claude Code Skill
+## 🤖 Agent Skill
 
-tock 内置了一个 [Claude Code](https://claude.com/claude-code) skill，让 Claude 能用自然语言帮你管理任务。
+tock 内置了一个 skill（[Claude Code](https://claude.com/claude-code) 等 Agent 都能加载），让 Agent 用自然语言帮你管理任务。
 
 ### 安装 Skill
 
@@ -212,7 +225,7 @@ scripts/install-skill.sh          # 复制到 ~/.claude/skills/tock/
 scripts/install-skill.sh -f       # 覆盖已有的本地自定义版本
 ```
 
-### 你可以这样跟 Claude 说
+### 你可以这样跟 Agent 说
 
 ```
 「明天下午三点提醒我给客户打电话」
@@ -223,7 +236,7 @@ scripts/install-skill.sh -f       # 覆盖已有的本地自定义版本
 「帮我创建一个读书计划项目」
 ```
 
-Claude 会自动调用 tock CLI 完成操作，无需你记命令。
+Agent 会自动调用 tock CLI 完成操作，无需你记命令。
 
 ---
 
@@ -263,6 +276,17 @@ bun test               # 单元测试 + mock API 集成测试
 bunx tsc --noEmit      # 类型检查
 scripts/e2e.sh         # 完整 E2E 测试（需要已完成 tock init）
 ```
+
+---
+
+## 🔥 关于 AI Spark
+
+> **AI Spark 聚焦 AI 实战与超级个体成长，是由一线 AI 实战者维护的开源知识社区。** 覆盖 AI 入门、工具与大模型、AI 编程与智能体、内容创作、效率提升等模块——从新手入门，到工具实操，再到靠 AI 提效增收的变现路径，知识库资料全部公开免费。
+
+`tock` 正是 AI Spark 开源生态中的一个工具：把「用 AI 管理日常待办」这件事，做成一个机器友好、可被 Agent 直接调用的 CLI。
+
+- 📚 **开源知识库**：https://github.com/aisparkedu/knowledge-base —— 7 大内容模块 + 实战教程，每周更新，永久免费
+- 🧑‍💻 **GitHub 组织**：https://github.com/aisparkedu
 
 ---
 

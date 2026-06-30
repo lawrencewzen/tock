@@ -1,6 +1,19 @@
-# tock
+<div align="center">
 
-[English](./README.md) · [中文](./README_CN.md)
+# 🕐 tock
+
+[![AI Spark](https://img.shields.io/badge/AI%20Spark-Open%20Knowledge%20Community-d83931?style=flat-square)](https://github.com/aisparkedu)
+[![Knowledge Base](https://img.shields.io/badge/AI%20Spark-Knowledge%20Base-2b6cb0?style=flat-square)](https://github.com/aisparkedu/knowledge-base)
+[![License: MIT](https://img.shields.io/badge/License-MIT-22863a?style=flat-square)](./LICENSE)
+[![Bun](https://img.shields.io/badge/Bun-1.3.14+-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
+
+**A machine-friendly TickTick / Dida365 CLI, built for AI-skill todo workflows**
+
+[English](./README.md) · [中文](./README_CN.md) · An [AI Spark](https://github.com/aisparkedu) open-source project
+
+</div>
+
+---
 
 A machine-friendly CLI for [TickTick](https://ticktick.com) / [滴答清单
 (Dida365)](https://dida365.com), built for AI-skill todo workflows.
@@ -80,18 +93,19 @@ tock task delete <id>                   # immediate, no confirmation
 
 Priorities: `none|low|medium|high`. Dates: RFC3339 in, API format out.
 
-## Claude Code skill
+## Agent skill
 
-`skill/SKILL.md` teaches [Claude Code](https://claude.com/claude-code) to
-manage your todos through tock — natural-language create/query/complete,
-provider switching, and guided OAuth setup. Install it with:
+`skill/SKILL.md` teaches [Claude Code](https://claude.com/claude-code) — and any
+agent that can load a `SKILL.md` — to manage your todos through tock:
+natural-language create/query/complete, provider switching, and guided OAuth
+setup. Install it with:
 
 ```bash
 scripts/install-skill.sh        # copies to ~/.claude/skills/tock/
                                 # -f overwrites a locally customized copy
 ```
 
-Then just tell Claude things like 「明天下午3点提醒我给客户回电话」 or
+Then just tell your agent things like 「明天下午3点提醒我给客户回电话」 or
 「今天有什么任务」.
 
 ## Development
@@ -101,6 +115,20 @@ bun test               # unit + mock-server integration tests
 bunx tsc --noEmit      # typecheck
 scripts/e2e.sh         # full lifecycle against the real account (needs init)
 ```
+
+## About AI Spark
+
+> **AI Spark is an open-source knowledge community focused on hands-on AI and
+> super-individual growth**, maintained by people building real AI products. It
+> covers AI fundamentals, tools & models, AI coding & agents, content creation,
+> and productivity — from getting started, to practical workflows, to turning
+> AI into income. All materials are public and free.
+
+`tock` is one of AI Spark's open-source tools — turning *"manage your todos with
+AI"* into a machine-friendly, agent-callable CLI.
+
+- 📚 **Knowledge base** (中文): https://github.com/aisparkedu/knowledge-base
+- 🧑‍💻 **GitHub org**: https://github.com/aisparkedu
 
 ## License
 

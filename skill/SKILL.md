@@ -6,7 +6,7 @@ description: 用 tock CLI 管理用户的 TickTick / 滴答清单待办。当用
 # tock — TickTick / 滴答清单待办管理
 
 `tock` 是一个 machine-friendly 的 TickTick CLI，需在 PATH 上（安装与 OAuth
-配置见 <https://github.com/lawrencewzen/tock> 的 README）。token 配置好后会
+配置见 <https://github.com/aisparkedu/tock> 的 README）。token 配置好后会
 自动刷新；如遇认证错误，引导用户按下文「注册 OAuth app」操作并自己运行
 `tock init`（交互式，会打开浏览器）。
 
