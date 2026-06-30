@@ -1,5 +1,7 @@
 # tock
 
+[English](./README.md) · [中文](./README_CN.md)
+
 A machine-friendly CLI for [TickTick](https://ticktick.com) / [滴答清单
 (Dida365)](https://dida365.com), built for AI-skill todo workflows.
 
