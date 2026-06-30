@@ -86,7 +86,7 @@ tock task update <task-id> [-t 标题] [-c 备注] [-p none|low|medium|high] \
                  [--tags a,b] [--start RFC3339] [--due RFC3339] [--all-day] [--tz 时区] \
                  [--reminder TRIGGER:PT0S]
 # 只传入需要变更的 flag，其余字段保持原值（read-modify-write）
-# ⚠️ update 必须带 -P <project-id>，否则会报 validation 错误
+# 不带 -P 时作用于默认清单；改其他清单里的任务必须带 -P <project-id>，否则报 task not found
 
 tock task complete <task-id>
 tock task delete <task-id>          # 立即删除，无确认
