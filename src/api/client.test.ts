@@ -62,6 +62,30 @@ describe("getTask", () => {
     const task = await client.getTask("pid", "tid");
     expect(task.title).toBe("hello");
   });
+
+  test("falls back to the task listing when the single GET is empty", async () => {
+    const client = serve((req) => {
+      const path = new URL(req.url).pathname;
+      if (path === "/project/pid/task/tid") return new Response("", { status: 200 });
+      if (path === "/project/pid/data") {
+        return json({ tasks: [{ id: "tid", projectId: "pid", title: "from list" }] });
+      }
+      return new Response("unexpected", { status: 500 });
+    });
+    const task = await client.getTask("pid", "tid");
+    expect(task.id).toBe("tid");
+    expect(task.title).toBe("from list");
+  });
+
+  test("returns a blank-id sentinel when the task is nowhere to be found", async () => {
+    const client = serve((req) => {
+      const path = new URL(req.url).pathname;
+      if (path === "/project/pid/task/missing") return new Response("", { status: 200 });
+      return json({ tasks: [] });
+    });
+    const task = await client.getTask("pid", "missing");
+    expect(task.id).toBe("");
+  });
 });
 
 describe("createTask", () => {

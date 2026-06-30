@@ -59,9 +59,20 @@ export class ApiClient {
     return ProjectDataSchema.parse(data ?? {}).tasks;
   }
 
+  /**
+   * Fetches a single task. The single-task GET sometimes returns an empty or
+   * partial body (verified live on Dida365), which would make a strict parse
+   * throw before callers can react. So fall back to the project's task listing
+   * — a more reliable endpoint — and only return a blank-id sentinel when the
+   * task truly isn't found, letting callers report a clean not-found.
+   */
   async getTask(projectId: string, taskId: string): Promise<Task> {
     const data = await this.request("GET", `/project/${projectId}/task/${taskId}`);
-    return TaskSchema.parse(data);
+    const parsed = TaskSchema.safeParse(data);
+    if (parsed.success && parsed.data.id === taskId) return parsed.data;
+
+    const fromList = (await this.listTasks(projectId)).find((t) => t.id === taskId);
+    return fromList ?? { id: "", projectId, title: "", priority: 0, status: 0 };
   }
 
   async createTask(task: Partial<Task> & { title: string; projectId: string }): Promise<Task> {
