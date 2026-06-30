@@ -10,7 +10,7 @@ const program = new Command()
   .description(
     "A machine-friendly CLI for TickTick / Dida365 — built for AI-skill todo workflows",
   )
-  .version("0.1.0")
+  .version("0.1.1")
   .option("-P, --project-id <id>", "operate on this project instead of the default");
 
 program.addCommand(initCommand());

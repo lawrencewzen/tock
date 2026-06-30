@@ -1,6 +1,6 @@
 {
   "name": "tock",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A machine-friendly CLI for TickTick / Dida365, built for AI-skill todo workflows",
   "module": "src/index.ts",
   "type": "module",
