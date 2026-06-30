@@ -79,7 +79,12 @@ export class ApiClient {
       throw new Error("updateTask requires non-empty id and projectId (empty projectId would create a duplicate task)");
     }
     const data = await this.request("POST", `/task/${task.id}`, task);
-    return TaskSchema.parse(data);
+    // The update endpoint often returns an empty or partial body (verified
+    // live on Dida365), so a strict parse would surface a validation error
+    // even though the POST succeeded (request() throws on non-2xx). Fall back
+    // to the task we sent when the response isn't a full Task.
+    const parsed = TaskSchema.safeParse(data);
+    return parsed.success ? parsed.data : task;
   }
 
   async completeTask(projectId: string, taskId: string): Promise<void> {

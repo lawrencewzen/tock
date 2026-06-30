@@ -95,6 +95,13 @@ describe("updateTask", () => {
     expect(updated.title).toBe("renamed");
   });
 
+  test("tolerates an empty response body, echoing the sent task", async () => {
+    const client = serve(() => new Response("", { status: 200 }));
+    const updated = await client.updateTask(task);
+    expect(updated.id).toBe("tid");
+    expect(updated.title).toBe("renamed");
+  });
+
   test("refuses empty projectId without calling the API", async () => {
     let called = false;
     const client = serve(() => {
