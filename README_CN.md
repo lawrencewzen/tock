@@ -2,12 +2,30 @@
 
 # 🕐 tock
 
-[![AI Spark](https://img.shields.io/badge/AI%20Spark-开源知识社区-d83931?style=flat-square)](https://github.com/aisparkedu)
-[![知识库](https://img.shields.io/badge/AI%20Spark-知识库-2b6cb0?style=flat-square)](https://github.com/aisparkedu/knowledge-base)
-[![License: MIT](https://img.shields.io/badge/License-MIT-22863a?style=flat-square)](./LICENSE)
-[![Bun](https://img.shields.io/badge/Bun-1.3.14+-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
-
 **为 AI 工作流而生的 TickTick / 滴答清单命令行工具**
+
+_用自然语言管理待办 —— 任何 Agent，一条命令搞定_
+
+<p>
+  <a href="https://github.com/aisparkedu/tock/releases"><img src="https://img.shields.io/badge/version-0.1.1-d83931?style=flat-square" alt="version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-22863a?style=flat-square" alt="license"></a>
+  <a href="https://bun.sh"><img src="https://img.shields.io/badge/Bun-1.3.14%2B-000000?style=flat-square&logo=bun&logoColor=white" alt="bun"></a>
+  <img src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="typescript">
+  <img src="https://img.shields.io/badge/%E5%B9%B3%E5%8F%B0-macOS%20%26%20Linux-555555?style=flat-square" alt="platform">
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/TickTick-%E5%9B%BD%E9%99%85%E7%89%88-4772fa?style=flat-square" alt="ticktick">
+  <img src="https://img.shields.io/badge/%E6%BB%B4%E7%AD%94%E6%B8%85%E5%8D%95-Dida365-ffb400?style=flat-square" alt="dida365">
+  <img src="https://img.shields.io/badge/Claude%20Code%20%26%20Agent-%E5%8D%B3%E8%A3%85%E5%8D%B3%E7%94%A8-8a3ffc?style=flat-square&logo=anthropic&logoColor=white" alt="agents">
+</p>
+
+<p>
+  <a href="https://github.com/aisparkedu"><img src="https://img.shields.io/badge/AI%20Spark-%E5%BC%80%E6%BA%90%E7%9F%A5%E8%AF%86%E7%A4%BE%E5%8C%BA-d83931?style=for-the-badge" alt="AI Spark"></a>
+  <a href="https://github.com/aisparkedu/knowledge-base"><img src="https://img.shields.io/badge/%E7%9F%A5%E8%AF%86%E5%BA%93-2b6cb0?style=for-the-badge&logo=readthedocs&logoColor=white" alt="知识库"></a>
+</p>
+
+🤖 机器友好&nbsp;&nbsp;·&nbsp;&nbsp;🌐 双平台&nbsp;&nbsp;·&nbsp;&nbsp;🛡️ 安全更新&nbsp;&nbsp;·&nbsp;&nbsp;🗣️ 内置 Agent skill
 
 [English](./README.md) · [中文](./README_CN.md) · 一个 [AI Spark](https://github.com/aisparkedu) 开源项目
 

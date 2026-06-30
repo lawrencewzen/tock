@@ -2,12 +2,30 @@
 
 # 🕐 tock
 
-[![AI Spark](https://img.shields.io/badge/AI%20Spark-Open%20Knowledge%20Community-d83931?style=flat-square)](https://github.com/aisparkedu)
-[![Knowledge Base](https://img.shields.io/badge/AI%20Spark-Knowledge%20Base-2b6cb0?style=flat-square)](https://github.com/aisparkedu/knowledge-base)
-[![License: MIT](https://img.shields.io/badge/License-MIT-22863a?style=flat-square)](./LICENSE)
-[![Bun](https://img.shields.io/badge/Bun-1.3.14+-000000?style=flat-square&logo=bun&logoColor=white)](https://bun.sh)
-
 **A machine-friendly TickTick / Dida365 CLI, built for AI-skill todo workflows**
+
+_Manage your todos in natural language — from any agent, in a single command._
+
+<p>
+  <a href="https://github.com/aisparkedu/tock/releases"><img src="https://img.shields.io/badge/version-0.1.1-d83931?style=flat-square" alt="version"></a>
+  <a href="./LICENSE"><img src="https://img.shields.io/badge/license-MIT-22863a?style=flat-square" alt="license"></a>
+  <a href="https://bun.sh"><img src="https://img.shields.io/badge/Bun-1.3.14%2B-000000?style=flat-square&logo=bun&logoColor=white" alt="bun"></a>
+  <img src="https://img.shields.io/badge/TypeScript-3178c6?style=flat-square&logo=typescript&logoColor=white" alt="typescript">
+  <img src="https://img.shields.io/badge/platform-macOS%20%26%20Linux-555555?style=flat-square" alt="platform">
+</p>
+
+<p>
+  <img src="https://img.shields.io/badge/TickTick-international-4772fa?style=flat-square" alt="ticktick">
+  <img src="https://img.shields.io/badge/Dida365-%E6%BB%B4%E7%AD%94%E6%B8%85%E5%8D%95-ffb400?style=flat-square" alt="dida365">
+  <img src="https://img.shields.io/badge/Claude%20Code%20%26%20Agents-ready-8a3ffc?style=flat-square&logo=anthropic&logoColor=white" alt="agents">
+</p>
+
+<p>
+  <a href="https://github.com/aisparkedu"><img src="https://img.shields.io/badge/AI%20Spark-Open%20Knowledge%20Community-d83931?style=for-the-badge" alt="AI Spark"></a>
+  <a href="https://github.com/aisparkedu/knowledge-base"><img src="https://img.shields.io/badge/Knowledge%20Base-2b6cb0?style=for-the-badge&logo=readthedocs&logoColor=white" alt="Knowledge Base"></a>
+</p>
+
+🤖 Machine-first&nbsp;&nbsp;·&nbsp;&nbsp;🌐 Dual provider&nbsp;&nbsp;·&nbsp;&nbsp;🛡️ Safe updates&nbsp;&nbsp;·&nbsp;&nbsp;🗣️ Agent skill built in
 
 [English](./README.md) · [中文](./README_CN.md) · An [AI Spark](https://github.com/aisparkedu) open-source project
 
